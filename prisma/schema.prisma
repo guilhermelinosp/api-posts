@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@localhost:5432/postgres?schema=public"
+	shadowDatabaseUrl = "postgresql://postgres:postgres@localhost:5432/postgres?schema=public"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique @db.VarChar()
+  name      String   @db.VarChar()
+  admin     Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+
+  @@map("user")
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  published Boolean  @default(false)
+  title     String   @db.VarChar()
+  content   String?  @db.VarChar()
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author      User?   @relation(fields: [authorEmail], references: [email], onDelete: Cascade)
+  authorEmail String?
+
+  @@map("post")
+}

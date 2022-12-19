@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+		/* Interop Constraints */
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
+
+		/* JavaScript Support */
+		"allowJs": true,
+
+		/* Language and Environment */
+		"target": "ES2019",
+		"lib": ["ES2019", "DOM"],
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+
+		/* Modules */
+		"module": "CommonJS",
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"typeRoots": ["./node_modules/@types", "src/@types"],
+
+		/* Type Checking */
+		"strict": true,
+		"alwaysStrict": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"noImplicitThis": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"strictPropertyInitialization": false,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+
+		/* Completeness */
+		"skipLibCheck": true
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules", "dist"]
+}
