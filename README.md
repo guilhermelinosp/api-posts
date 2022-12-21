@@ -27,7 +27,7 @@
 - Clone this repository
 
 ```shell
-git clone https://github.com/guilhermelinosp/api-sales.git
+git clone https://github.com/guilhermelinosp/api-posts.git
 ```
 </br>
 
