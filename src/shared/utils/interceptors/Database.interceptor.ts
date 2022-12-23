@@ -15,7 +15,7 @@ import { isPrismaErrors } from '../types/isPrimaErrors'
 export class DatabaseInterceptor implements NestInterceptor {
 	intercept(_context: ExecutionContext, next: CallHandler): Observable<any> {
 		return next.handle().pipe(
-			catchError(err => {
+			catchError((err) => {
 				if (isPrismaErrors(err)) {
 					err = isDatabaseErrors(err)
 				}

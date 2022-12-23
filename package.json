@@ -2,17 +2,16 @@
 	"name": "api-posts-nest",
 	"version": "1.0.0",
 	"license": "MIT",
-	"repository": "https://github.com/guilhermelinosx/api-posts-nest.git",
-	"author": "Guilherme Lino <guilhermelinosx@gmail.com>",
+	"repository": "https://github.com/guilhermelinosp/api-posts.git",
+	"author": "Guilherme Lino <guilhermelinosp@gmail.com>",
+	"main": "main.js",
 	"scripts": {
-		"up": "docker compose up --build",
-		"down": "docker-compose down",
-		"bash": "docker-compose exec api bash",
-		"build": "rimraf dist && nest build",
+		"prebuild": "rimraf dist",
+		"build": "nest build",
 		"start": "nest start",
 		"start:dev": "nest start --watch",
 		"start:debug": "nest start --debug --watch",
-		"start:prod": "node dist/main",
+		"start:prod": "node dist/main.js",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:cov": "jest --coverage",
@@ -20,10 +19,7 @@
 		"test:e2e": "jest --config ./test/jest-e2e.json",
 		"commit": "cz",
 		"pre-commit": "lint-staged",
-		"prepare": "husky install",
-		"typeorm": "ts-node ./node_modules/typeorm/cli.js",
-		"lint": "eslint --ext .ts,.tsx src/ --fix",
-		"prettier": "prettier --write \"src/**/*.{ts,tsx}\" "
+		"fix": "prettier  --write . && eslint . --fix"
 	},
 	"dependencies": {
 		"@nestjs/mapped-types": "*",
@@ -74,23 +70,6 @@
 		"tsconfig-paths": "4.1.1",
 		"typescript": "^4.7.4"
 	},
-	"jest": {
-		"moduleFileExtensions": [
-			"js",
-			"json",
-			"ts"
-		],
-		"rootDir": "src",
-		"testRegex": ".*\\.spec\\.ts$",
-		"transform": {
-			"^.+\\.(t|j)s$": "ts-jest"
-		},
-		"collectCoverageFrom": [
-			"**/*.(t|j)s"
-		],
-		"coverageDirectory": "../coverage",
-		"testEnvironment": "node"
-	},
 	"config": {
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
@@ -99,7 +78,7 @@
 	"lint-staged": {
 		"**/*.{ts,tsx,js,jsx}": [
 			"prettier --write",
-			"eslint . --fix"
+			"eslint --fix"
 		]
 	}
 }

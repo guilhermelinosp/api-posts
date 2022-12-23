@@ -1,26 +1,26 @@
 version: '3'
 
 services:
-  api:
+  app:
     build: .
-    entrypoint: .docker/entrypoint.sh
+    restart: always
     container_name: api
     ports:
-      - "8080:8080"
+      - '8080:8080'
     volumes:
-      - ".:/home/node/app"
+      - '.:/home/node/app'
     depends_on:
       - db
 
   db:
-    build: .docker/postgres
-    container_name: db
+    build: .docker/.
     restart: always
+    container_name: db
     tty: true
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
-      - .docker/postgres/data:/var/lib/postgresql/data
+      - .docker/data:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres

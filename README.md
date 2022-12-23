@@ -62,4 +62,3 @@ yarn bash
 </br>
 
 - To closed bash in the Application, write "exit" in the terminal
-

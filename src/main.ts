@@ -36,7 +36,7 @@ async function bootstrap() {
 	app.useGlobalInterceptors(new UnauthorizedInterceptor())
 	app.useGlobalInterceptors(new NotFoundInterceptor())
 
-	await app.listen(process.env.PORT ?? 3001)
+	await app.listen(process.env.PORT ?? 8080)
 }
 
 void bootstrap()

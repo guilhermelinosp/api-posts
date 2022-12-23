@@ -1,19 +1,11 @@
-.idea
-.vscode
-node_modules
-build
-tmp
-temp
-dist
 *.log
 dist
 build
-package-lock.json
 node_modules
+coverage
+*.lock
 .env
-yarn.lock
-package-lock.json
-.docker/postgres/data
+.docker/data
 
 # Logs
 logs

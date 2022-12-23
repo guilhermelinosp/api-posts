@@ -9,8 +9,8 @@
 		"allowJs": true,
 
 		/* Language and Environment */
-		"target": "ES2019",
-		"lib": ["ES2019", "DOM"],
+		"target": "ES6",
+		"lib": ["ES6", "DOM"],
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 
